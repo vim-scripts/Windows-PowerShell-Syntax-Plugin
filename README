@@ -1,0 +1,7 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=1327
+
+This plugin provides Vim syntax, indent and filetype detection for WindowsPowerShell.
+
+For bugs, suggestions or changes, please use the GitHub site:
+
+http://github.com/PProvost/vim-ps1
