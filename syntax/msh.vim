@@ -1,8 +1,8 @@
 " Vim syntax file
 " Language:	MSH/Monad (Microsoft Command Shell)
 " Maintainer:	Peter Provost <peter@provost.org>
-" Last Change:	2005-08-10 10:54:32
-" Version: 1.1
+" Last Change:	2005-08-13 09:58:12
+" Version: 1.2
 " Filenames:	*.msh
 
 if exists("b:current_syntax")
@@ -14,7 +14,7 @@ syn case ignore
 syn match mshComment "#.*$"
 syn keyword mshFunctionDef						function nextgroup=mshFunction skipwhite
 syn match		mshFunction								"[a-zA-Z_][a-zA-Z0-9_-]*" contained
-syn keyword mshRepeat									do until for foreachwhile break continue 
+syn keyword mshRepeat									do until for foreach while break continue 
 syn keyword mshConditional						if else elseif switch 
 syn keyword mshKeyword								where filter in return
 syn region	mshString									start=+"+ end=+"+
