@@ -2,7 +2,7 @@
 " Language:	MSH/Monad (Microsoft Command Shell)
 " Maintainer:	Peter Provost <peter@provost.org>
 " Last Change:	2005-08-13 09:58:12
-" Version: 1.2
+" Version: 1.3
 " Filenames:	*.msh
 
 if exists("b:current_syntax")
@@ -17,10 +17,12 @@ syn match		mshFunction								"[a-zA-Z_][a-zA-Z0-9_-]*" contained
 syn keyword mshRepeat									do until for foreach while break continue 
 syn keyword mshConditional						if else elseif switch 
 syn keyword mshKeyword								where filter in return
-syn region	mshString									start=+"+ end=+"+
+syn region	mshString									start=+"+ skip=+\"+ end=+"+
+syn region  mshString                 start=+'+ end=+'+
 syn match		mshNumber									"\<\d\+\>"
 syn match   mshOperator   						"-\|=\|[:<>+\*^/\\]\|AND\|OR"
 syn match   mshVariable								"\$\w\+"
+syn match		mshVariable								"\${[a-z]\+:\\[a-z0-9_]\+}"
 syn match		mshCmdlet									"\w\+-\w\+"
 syn match		mshType										"\[[^\]0-9]\+\]"
 
