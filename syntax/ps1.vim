@@ -1,14 +1,16 @@
-"Vim syntax file
-" Version: 2.1
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vim syntax file
+" Version: 2.3
 " Language:	Windows PowerShell
 " Maintainer:	Peter Provost <peter@provost.org>
 " Remark: Updated to support Windows PowerShell (ps1)
 " 
-" $Date: 2007-02-19 09:43:53 -0700 (Mon, 19 Feb 2007) $
-" $Rev: 14 $
+" $Date: 2007-02-27 15:05:26 -0800 (Tue, 27 Feb 2007) $
+" $Rev: 35 $
 "
 " Contributions by:
 " 	Jared Parsons <jaredp@beanseed.org>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -27,7 +29,7 @@ syn case ignore
 " List of actual keywords and core language components
 syn keyword ps1Conditional if else switch
 syn keyword ps1Repeat while foreach default for do until break continue
-syn keyword ps1Keyword return where filter in trap throw
+syn keyword ps1Keyword return where filter in trap throw param
 syn match ps1Comment /#.*/
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
