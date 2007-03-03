@@ -1,19 +1,15 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim syntax file
-" Version: 2.4
+" Version: 2.5
 " Language:	Windows PowerShell
 " Maintainer:	Peter Provost <peter@provost.org>
 " Remark: Updated to support Windows PowerShell (ps1)
 " 
-" $Date: 2007-03-02 22:04:20 -0800 (Fri, 02 Mar 2007) $
-" $Rev: 44 $
+" $Date: 2007-03-03 17:07:45 -0800 (Sat, 03 Mar 2007) $
+" $Rev: 52 $
 "
 " Contributions by:
 " 	Jared Parsons <jaredp@beanseed.org>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Compatible VIM syntax file start
 if version < 600
   syntax clear
@@ -21,37 +17,37 @@ elseif exists("b:current_syntax")
   finish
 endif
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PowerShell doesn't care about case
 syn case ignore
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" List of actual keywords and core language components
+" Sync-ing method
+syn sync minlines=100
+
+" Comments and special comment words
+syn keyword ps1CommentTodo TODO FIXME XXX TBD HACK contained
+syn match ps1Comment /#.*/ contains=ps1CommentTodo
+
+" Language keywords and elements
 syn keyword ps1Conditional if else elseif switch
 syn keyword ps1Repeat while foreach default for do until break continue
 syn keyword ps1Keyword return where filter in trap throw param
-syn match ps1Comment /#.*/
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Functions and Cmdlets
 syn match ps1Cmdlet /\w\+-\w\+/
 syn keyword ps1Keyword function nextgroup=ps1Function skipwhite
 syn match ps1Function /\w\+-*\w*/ contained
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Type declarations
 syn match ps1Type /\[[a-z0-9_:.]\+\]/
 syn match ps1StandaloneType /[a-z0-9_.]\+/ contained
 syn keyword ps1Scope global local private script contained
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Variables and other user defined items
 syn match ps1Variable /\$\w\+/	
 syn match ps1Variable /\${\w\+:\\\w\+}/ 
 syn match ps1ScopedVariable /\$\w\+:\w\+/ contains=ps1Scope
 syn match ps1VariableName /\w\+/ contained
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Operators all start w/ dash
 syn match ps1OperatorStart /-c\?/ nextgroup=ps1Operator
 syn keyword ps1Operator eq ne ge gt lt le like notlike match notmatch replace /contains/ notcontains contained
@@ -61,17 +57,18 @@ syn keyword ps1Operator is isnot as
 syn keyword ps1Operator and or band bor
 syn keyword ps1Operator f
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Strings
+" Regular Strings
 syn region ps1String start=/"/ skip=/`"/ end=/"/ 
 syn region ps1String start=/'/ end=/'/  
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Here-Strings
+syn region ps1String start=/@"$/ end=/^"@$/
+syn region ps1String start=/@'$/ end=/^'@$/
+
 " Numbers
 syn match ps1Number /\<[0-9]\+/
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Put it all together...
+" Setup default color highlighting
 if version >= 508 || !exists("did_ps1_syn_inits")
   if version < 508
     let did_ps1_syn_inits = 1
@@ -91,6 +88,7 @@ if version >= 508 || !exists("did_ps1_syn_inits")
 	HiLink ps1StandaloneType		Type
 	HiLink ps1Number 						Number
 	HiLink ps1Comment						Comment
+	HiLink ps1CommentTodo				Todo
 	HiLink ps1Operator 					Operator
 	HiLink ps1Repeat						Repeat
 	HiLink ps1Keyword						Keyword
@@ -98,3 +96,4 @@ if version >= 508 || !exists("did_ps1_syn_inits")
   delcommand HiLink
 endif
 
+let b:current_syntax = "powershell"
