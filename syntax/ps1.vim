@@ -1,11 +1,11 @@
 " Vim syntax file
-" Version: 2.5
 " Language:	Windows PowerShell
 " Maintainer:	Peter Provost <peter@provost.org>
-" Remark: Updated to support Windows PowerShell (ps1)
+" Version: 2.6
+" Url: http://www.vim.org/scripts/script.php?script_id=1327
 " 
-" $Date: 2007-03-03 17:07:45 -0800 (Sat, 03 Mar 2007) $
-" $Rev: 52 $
+" $LastChangedDate: 2007-03-05 21:18:39 -0800 (Mon, 05 Mar 2007) $
+" $Rev: 58 $
 "
 " Contributions by:
 " 	Jared Parsons <jaredp@beanseed.org>
@@ -54,7 +54,7 @@ syn keyword ps1Operator eq ne ge gt lt le like notlike match notmatch replace /c
 syn keyword ps1Operator ieq ine ige igt ile ilt ilike inotlike imatch inotmatch ireplace icontains inotcontains contained
 syn keyword ps1Operator ceq cne cge cgt clt cle clike cnotlike cmatch cnotmatch creplace ccontains cnotcontains contained
 syn keyword ps1Operator is isnot as
-syn keyword ps1Operator and or band bor
+syn keyword ps1Operator and or band bor not
 syn keyword ps1Operator f
 
 " Regular Strings
