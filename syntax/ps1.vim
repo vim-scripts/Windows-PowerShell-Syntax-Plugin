@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language:	Windows PowerShell
 " Maintainer:	Peter Provost <peter@provost.org>
-" Version: 2.8
+" Version: 2.81
 " Project Repository: https://github.com/PProvost/vim-ps1
 " Vim Script Page: http://www.vim.org/scripts/script.php?script_id=1327"
 
@@ -41,7 +41,7 @@ syn match ps1Constant +\$\$+
 syn match ps1Constant +\$^+
 
 " Keywords reserved for future use
-syn keywords ps1Keyword class define from using var
+syn keyword ps1Keyword class define from using var
 
 " Functions and Cmdlets
 syn match ps1Cmdlet /\w\+-\w\+/
